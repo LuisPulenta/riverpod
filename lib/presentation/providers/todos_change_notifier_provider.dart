@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_app/config/config.dart';
 import 'package:riverpod_app/domain/domain.dart';
+import 'package:riverpod_app/presentation/providers/providers.dart';
 import 'package:uuid/uuid.dart';
 
 const _uuid = Uuid();
@@ -11,6 +12,7 @@ final todosChangeNotifierProvider =
   return TodosChangeNotifier();
 });
 
+//------------------------------------------------------------
 class TodosChangeNotifier extends ChangeNotifier {
   List<Todo> todos = <Todo>[
     Todo(
@@ -47,3 +49,19 @@ class TodosChangeNotifier extends ChangeNotifier {
     notifyListeners();
   }
 }
+
+//--------------------------------------------------------------
+final filteredNamesProvider = Provider<List<Todo>>((ref) {
+  final selectedFilter = ref.watch(todoFilterProvider);
+  final todos = ref.watch(todosChangeNotifierProvider).todos;
+
+  switch (selectedFilter) {
+    case TodoFilter.all:
+      return todos;
+
+    case TodoFilter.completed:
+      return todos.where((element) => element.done).toList();
+    case TodoFilter.pending:
+      return todos.where((element) => !element.done).toList();
+  }
+});
