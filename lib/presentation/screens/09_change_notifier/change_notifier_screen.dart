@@ -25,7 +25,7 @@ class ChangeNotifierScreen extends ConsumerWidget {
 //------------------------- _TodoView -----------------------------
 
 class _TodoView extends ConsumerWidget {
-  const _TodoView({super.key});
+  const _TodoView();
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {

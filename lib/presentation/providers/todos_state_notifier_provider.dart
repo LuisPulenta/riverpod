@@ -6,21 +6,6 @@ import 'package:uuid/uuid.dart';
 
 const _uuid = Uuid();
 
-final filteredGuestProvider = Provider<List<Todo>>((ref) {
-  final selectedFilter = ref.watch(todoFilterProvider);
-  final todos = ref.watch(todosStateNotifierProvider);
-
-  switch (selectedFilter) {
-    case TodoFilter.all:
-      return todos;
-
-    case TodoFilter.completed:
-      return todos.where((element) => element.done).toList();
-    case TodoFilter.pending:
-      return todos.where((element) => !element.done).toList();
-  }
-});
-
 //----------------------- Provider --------------------------
 final todosStateNotifierProvider =
     StateNotifierProvider<TodosNotifier, List<Todo>>((ref) {
@@ -63,3 +48,19 @@ class TodosNotifier extends StateNotifier<List<Todo>> {
     }).toList();
   }
 }
+
+//--------------------------------------------------------------
+final filteredGuestProvider = Provider<List<Todo>>((ref) {
+  final selectedFilter = ref.watch(todoFilterProvider);
+  final todos = ref.watch(todosStateNotifierProvider);
+
+  switch (selectedFilter) {
+    case TodoFilter.all:
+      return todos;
+
+    case TodoFilter.completed:
+      return todos.where((element) => element.done).toList();
+    case TodoFilter.pending:
+      return todos.where((element) => !element.done).toList();
+  }
+});

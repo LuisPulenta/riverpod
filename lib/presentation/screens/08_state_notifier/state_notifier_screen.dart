@@ -25,7 +25,7 @@ class StateNotifierScreen extends ConsumerWidget {
 //------------------------- _TodoView -----------------------------
 
 class _TodoView extends ConsumerWidget {
-  const _TodoView({super.key});
+  const _TodoView();
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -34,10 +34,10 @@ class _TodoView extends ConsumerWidget {
 
     return Column(
       children: [
-        // const ListTile(
-        //   title: Text('Listado de invitados'),
-        //   subtitle: Text('Estas son las personas a invitar a la fiesta'),
-        // ),
+        const ListTile(
+          title: Text('Listado de invitados'),
+          subtitle: Text('Estas son las personas a invitar a la fiesta'),
+        ),
 
         SegmentedButton(
           segments: const [

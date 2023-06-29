@@ -11,7 +11,7 @@ class StreamProviderScreen extends ConsumerWidget {
       appBar: AppBar(
         title: const Text('Stream Provider'),
       ),
-      body: _StreamView(),
+      body: const _StreamView(),
       floatingActionButton: FloatingActionButton(
         child: const Icon(Icons.refresh_rounded),
         onPressed: () {
@@ -24,7 +24,7 @@ class StreamProviderScreen extends ConsumerWidget {
 
 //-----------------------------------------------------------
 class _StreamView extends ConsumerWidget {
-  const _StreamView({super.key});
+  const _StreamView();
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
