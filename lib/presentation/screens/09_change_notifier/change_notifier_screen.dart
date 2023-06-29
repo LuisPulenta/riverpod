@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:riverpod_app/domain/domain.dart';
 import 'package:riverpod_app/presentation/providers/providers.dart';
 
 class ChangeNotifierScreen extends ConsumerWidget {
