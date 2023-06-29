@@ -18,11 +18,27 @@ class FutureProviderScreen extends ConsumerWidget {
               data: (name) => Text(name),
               error: (_, __) => const Text('No se pudo cargar el nombre'),
               loading: () => const CircularProgressIndicator())),
-      floatingActionButton: FloatingActionButton(
-        child: const Icon(Icons.refresh),
-        onPressed: () {
-          ref.read(pokemonIdProvider.notifier).update((state) => state + 1);
-        },
+      floatingActionButton: Column(
+        mainAxisAlignment: MainAxisAlignment.end,
+        children: [
+          FloatingActionButton(
+            heroTag: 2,
+            child: const Icon(Icons.add),
+            onPressed: () {
+              ref.read(pokemonIdProvider.notifier).update((state) => state + 1);
+            },
+          ),
+          const SizedBox(
+            height: 15,
+          ),
+          FloatingActionButton(
+            heroTag: 1,
+            child: const Icon(Icons.refresh_rounded),
+            onPressed: () {
+              ref.invalidate(pokemonIdProvider);
+            },
+          ),
+        ],
       ),
     );
   }

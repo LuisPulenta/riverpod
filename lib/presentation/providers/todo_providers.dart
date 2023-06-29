@@ -39,7 +39,7 @@ final todosProvider = StateProvider<List<Todo>>((ref) {
 });
 
 //----------------------------------------------------------
-final filteredTodosProvider = StateProvider<List<Todo>>((ref) {
+final filteredTodosProvider = Provider<List<Todo>>((ref) {
   final selectedFilter = ref.watch(todoFilterProvider);
   final todos = ref.watch(todosProvider);
 

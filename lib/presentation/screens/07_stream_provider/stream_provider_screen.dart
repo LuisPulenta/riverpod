@@ -2,16 +2,22 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_app/presentation/providers/providers.dart';
 
-class StreamProviderScreen extends StatelessWidget {
+class StreamProviderScreen extends ConsumerWidget {
   const StreamProviderScreen({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Stream Provider'),
       ),
       body: _StreamView(),
+      floatingActionButton: FloatingActionButton(
+        child: const Icon(Icons.refresh_rounded),
+        onPressed: () {
+          ref.invalidate(usersInChatProvider);
+        },
+      ),
     );
   }
 }

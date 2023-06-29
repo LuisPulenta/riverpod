@@ -3,7 +3,11 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_app/config/config.dart';
 import 'package:riverpod_app/presentation/providers/providers.dart';
 
-void main() => runApp(const ProviderScope(child: MyApp()));
+void main() => runApp(
+      const ProviderScope(
+        child: MyApp(),
+      ),
+    );
 
 class MyApp extends ConsumerWidget {
   const MyApp({super.key});

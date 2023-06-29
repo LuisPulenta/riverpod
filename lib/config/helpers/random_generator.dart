@@ -8,6 +8,6 @@ class RandomGenerator {
 
   static Stream<String> randomNameStream() {
     return Stream.periodic(const Duration(seconds: 2), (i) => getRandomName())
-        .take(10);
+        .take(5);
   }
 }
