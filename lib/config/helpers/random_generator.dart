@@ -7,7 +7,7 @@ class RandomGenerator {
   }
 
   static Stream<String> randomNameStream() {
-    return Stream.periodic(const Duration(seconds: 2), (i) => getRandomName())
-        .take(5);
+    return Stream.periodic(
+        const Duration(milliseconds: 500), (i) => getRandomName()).take(8);
   }
 }

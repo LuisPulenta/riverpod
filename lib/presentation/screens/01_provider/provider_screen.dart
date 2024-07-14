@@ -30,12 +30,19 @@ class ProviderScreenState extends ConsumerState<ProviderScreen> {
   @override
   Widget build(BuildContext context) {
     final name = ref.watch(simpleNameProvider);
+    final age = ref.watch(ageProvider);
     return Scaffold(
       appBar: AppBar(
         title: const Text('Provider'),
       ),
       body: Center(
-        child: Text(name),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(name),
+            Text(age.toString()),
+          ],
+        ),
       ),
     );
   }
